@@ -1,0 +1,157 @@
+:root {
+    --nav-col-bg: #46ACC2;
+    --nav-col-fg: #FFFFFF;
+    --border-rad: 0.25em;
+    --font-stack: Calibri, 'Open Sans', sans-serif;
+    --pane-pad: 0.25em;
+    --pane-margin: 0.25em;
+    --temp-bg-blue: lightblue;
+}
+
+
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-stack);
+}
+
+header {
+    background-color: grey;
+    width: 100%;
+}
+header > img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    /*width: 100%;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav-col-bg);
+    padding: var(--pane-pad);
+}
+nav > ul{
+    /*width: 100%;*/
+    display: flex;
+    overflow: hidden;
+    list-style: none;
+    color: var(--nav-col-fg);
+    background-color: var(--nav-col-bg);
+}
+li{
+    /*display: inline;*/
+    float: right;
+    /*border: 1px red solid;*/
+    margin-top: 5px;
+    /*text-align: center;*/
+}
+li a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--nav-col-fg);
+}
+.home{
+    margin-top: 2.5px;
+    margin-left: 0px;
+    float: left;
+    font-size: larger;
+    text-decoration: none;
+    color: var(--nav-col-fg);
+}
+
+.col1{
+    grid-area: col1;
+}
+.col2{
+    grid-area: col2;
+}
+.col3{
+    grid-area: col3;
+}
+
+.col1, .col2, .col3 {
+    border-radius: var(--border-rad);
+    text-align: center;
+    background-color: lightcoral;
+    padding: var(--pane-pad);
+    margin: var(--pane-margin);
+}
+.col1{
+    grid-area: col1;
+    text-align: left;
+}
+.container {
+    width:86%;
+    margin-left: 7%;
+    display: grid;
+    grid-template-columns:  1fr 4fr 1fr ;
+    grid-template-rows: 1fr;
+    grid-template-areas: "col1 col2 col3";
+
+}
+
+.hamburger{
+    display: none;
+    height: 1.5em;
+    width: 1.5em;
+}
+.hamburger > img {
+    width: 100%;
+}
+
+.col3 p {
+    text-align: justify;
+    margin: 0px 10px;
+}
+
+
+
+
+
+
+
+@media (max-width: 1000px) {
+    .container {
+        width: 100%;
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 900px){
+    .container {
+        width: 100%;
+        margin-left: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "col3" "col2" "col1";
+    }
+
+    nav, .nav_list {
+        flex-direction: column;
+        padding: 1em;
+    }
+    .nav_list {
+        display: none;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .hamburger {
+        align-self: flex-end;
+        display: initial;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    .navigation_list_onclick {
+        display: flex;
+        flex-direction: column;
+    }
+}
